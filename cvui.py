@@ -440,10 +440,10 @@ class Internal:
 
 		return theValue[0]
 
-	def checkbox(self, theBlock, theX, theY, theLabel, theState, theColor):
+	def checkbox(self, theBlock, theX, theY, theLabel, theState, theColor, theFontScale=0.4):
 		aMouse = self.getContext().mouse
 		aRect = Rect(theX, theY, 15, 15)
-		aSizeInfo, aBaseline = cv2.getTextSize(theLabel, cv2.FONT_HERSHEY_SIMPLEX, 0.4, 1)
+		aSizeInfo, aBaseline = cv2.getTextSize(theLabel, cv2.FONT_HERSHEY_SIMPLEX, theFontScale, 1)
 		aTextSize = Rect(0, 0, aSizeInfo[0], aSizeInfo[1])
 		aHitArea = Rect(theX, theY, aRect.width + aTextSize.width + 6, aRect.height)
 		aMouseIsOver = aHitArea.contains(aMouse.position)
